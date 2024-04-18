@@ -66,10 +66,10 @@ include = [
 "frontend/dist" = "/opuscleaner/frontend"
 
 [tool.hatch.metadata.hooks.requirements_txt]
-files = ["requirements.txt"]
+files = ["deployment/requirements-ws.txt"]
 
 [tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
-all = ["requirements-all.txt"]
+all = ["deployment/requirements-oc.txt"]
 
 [tool.coverage.run]
 branch = true

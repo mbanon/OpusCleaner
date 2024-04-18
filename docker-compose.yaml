@@ -1,0 +1,15 @@
+services:
+    opuscleaner:
+        container_name: opuscleaner
+        image: opuscleaner:latest
+        build:
+            context: .
+            dockerfile: Dockerfile
+        networks:
+            - oc-network
+        ports:
+            - "8000:8000"
+            - "5173:5173"
+networks:
+    oc-network:
+    
