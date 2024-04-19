@@ -21,7 +21,7 @@ RUN mkdir -p /work/OpusCleaner/
 COPY . /work/OpusCleaner/
 
 RUN apt-get update
-RUN apt-get install -y joe curl python3.10 python3-dev python3.10-dev  python3-pip  python3.10-venv software-properties-common git
+RUN apt-get install -y joe curl python3.10 python3-dev python3.10-dev  python3-pip  python3.10-venv software-properties-common git build-essential autoconf autopoint libtool
 
 
 #The webserver runs in no env (the cleaner either, for now)
@@ -44,8 +44,8 @@ SHELL ["/bin/bash", "--login", "-c"]
 #	python3.10 -m pip install -U wheel && \
 #	python3.10 -m pip install -U setuptools 
 #RUN . /work/venvs/venv-oc/bin/activate && \
-#	python3.10 -m pip install -r /work/deployment/requirements-oc.txt
-#I don't want to install the above while testing ws
+RUN python3.10 -m pip install git+https://github.com/MSeal/cython_hunspell@2.0.3
+RUN python3.10 -m pip install -r /work/OpusCleaner/deployment/requirements-oc.txt
 
 RUN python3.10 -m pip install /work/OpusCleaner/
 #COPY deployment/docker-entrypoint.sh /work/deployment/docker-entrypoint.sh
