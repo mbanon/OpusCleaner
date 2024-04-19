@@ -1,13 +1,40 @@
-/*
 :root {
-	color-scheme: light dark;
-	--background-color: rgb(255, 255, 255);
-	--border-color: rgba(128,128,128,0.25);
+  /* color-scheme: light dark; */
+  --background-color: rgb(255, 255, 255);
+  --border-color: rgba(128, 128, 128, 0.25);
+  --main-copy: #1a253e;
+  --secondary-copy: #5c6977;
+  --input-border: rgb(202, 202, 202);
+  --table-border: #1c3948;
+  --tertiary-copy: #1a253e;
+  --secondary-background: #e3edf3;
+  --button-background: #ebd57e;
+  --copy-hover: #424f6d;
+  --dropdown-bg: #f5f9fb;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background-color: rgb(28, 27, 33);
-	}
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: rgb(28, 27, 33);
+    --secondary-bg-color: gray;
+    --border-color: rgb(187, 187, 187);
+    --main-copy: #fff5e4;
+    --secondary-copy: #cecece;
+    --table-border: #c3af8c;
+    --tertiary-copy: #ffe4af;
+    --secondary-background: #142936;
+    --button-background: #ebd57e;
+  }
+} */
+.vs__dropdown-toggle {
+  color: var(--main-copy);
+  border: 1px solid var(--border-color) !important;
+  cursor: pointer !important;
 }
-*/
+.vs__open-indicator {
+  fill: var(--border-color) !important;
+}
+.vs__dropdown-menu {
+  background-color: var(--dropdown-bg) !important;
+  margin-top: 10px !important;
+}

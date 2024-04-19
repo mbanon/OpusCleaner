@@ -1,25 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
-import { execSync } from 'node:child_process';
-import fs from 'node:fs';
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
-function getPythonPackageVersion(url) {
-  try {
-    return fs.readFileSync(url).toString().match(/^VERSION\s*=\s*(["'])(.+?)\1$/m)[2];
-  } catch {
-    return null;
-  }
-}
-
-function getGitCommit() {
-  try {
-    return execSync('git rev-parse --short HEAD').toString().trim();
-  } catch {
-    return null;
-  }
-}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,9 +16,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  define: {
-    '__OPUS_CLEANER_VERSION__': JSON.stringify(getPythonPackageVersion(new URL('../opuscleaner/__about__.py', import.meta.url))),
-    '__OPUS_CLEANER_COMMIT__': JSON.stringify(getGitCommit()),
   }
 })
