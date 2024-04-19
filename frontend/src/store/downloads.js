@@ -8,18 +8,6 @@ export function getDownloads() {
 	return downloads;
 }
 
-export function cancelDownload(download) {
-	fetchJSON(`/api/download/downloads/${encodeURIComponent(download.entry.id)}`, {
-		method: 'DELETE'
-	}).then(download => {
-		downloads[download.entry.id] = download;
-	});
-}
-
-export function retryDownload(download) {
-	startDownload(download.entry);
-}
-
 async function requestDownloadSelection(datasets) {
 	return await fetchJSON('/api/download/downloads/', {
 		method: 'POST',
@@ -34,20 +22,14 @@ async function fetchDownloads() {
 	return await fetchJSON(`/api/download/downloads/`);
 }
 
-export function startDownloads(datasets) {
-	requestDownloadSelection(datasets).then(update => {
+export function download(dataset) {
+	requestDownloadSelection([dataset]).then(update => {
 		Object.assign(downloads, castDownloadListToMap(update));
 	});
 }
 
-export function startDownload(dataset) {
-	return startDownloads([dataset]);
-}
-
 export function isDownloading(dataset) {
-	return dataset.id in downloads
-	    && ['pending', 'downloading', 'downloaded'].includes(downloads[dataset.id].state)
-	    && downloads[dataset.id];
+	return dataset.id in downloads;
 }
 
 export async function fetchSourceLanguages() {

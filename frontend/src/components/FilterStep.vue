@@ -42,8 +42,7 @@ const uid = getUniqueId();
 						...modelValue,
 						language: $event.target.value
 					})">
-					<option v-if="languages.length > 1" v-bind:value="languages.join(',')">all</option>
-					<option v-for="lang in languages" v-bind:key="lang" v-bind:value="lang">{{lang}}</option>
+					<option v-for="lang in languages" v-bind:key="lang">{{lang}}</option>
 				</select>
 			</div>
 			<div v-for="(parameter, name) in filterDefinition(modelValue)?.parameters || {}" v-bind:key="name">

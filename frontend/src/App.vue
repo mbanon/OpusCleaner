@@ -1,49 +1,39 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import appLogo from './assets/datailor-logo.svg';
-import euLogo from './assets/eu.png';
-import horizonLogo from './assets/horizon-europe.png';
-
-const commit = __OPUS_CLEANER_COMMIT__;
-const version = __OPUS_CLEANER_VERSION__;
-
+import { RouterLink, RouterView } from "vue-router";
+import appLogo from "./assets/opus-cleaner-logo.svg";
+import euLogo from "./assets/eu.png";
+import horizonLogo from "./assets/horizon-europe.png";
 </script>
 
 <template>
   <div class="navbar">
-    <RouterLink v-bind:to="{name:'list-datasets'}"><img class="logo-datailor" :src="appLogo" alt="Datailor logo"></RouterLink>
+    <RouterLink v-bind:to="{ name: 'list-datasets' }"
+      ><img class="logo" :src="appLogo" alt="opus cleaner logo"
+    /></RouterLink>
   </div>
   <RouterView></RouterView>
   <div class="footer">
     <div class="thanking">
-      <img :src="euLogo" alt="EU logo" class="eu-flag">
+      <img :src="euLogo" alt="EU logo" class="eu-flag" />
       <p>
         This project has received funding from the European Union’s Horizon
         Europe research and innovation programme under grant agreement No
         101070350
       </p>
     </div>
-    <div class="thanking">
-      <img :src="horizonLogo" alt="Horizon Europe logo" class="horizon-flag">
+    <div class="thanking right">
+      <img :src="horizonLogo" alt="Horizon Europe logo" class="horizon-flag" />
       <p>
-        The contents of this publication are the sole responsibility of the
-        HPLT consortium and do not necessarily reflect the opinion of the
-        European Union.
+        The contents of this publication are the sole responsibility of the HPLT
+        consortium and do not necessarily reflect the opinion of the European
+        Union.
       </p>
-    </div>
-    <div class="version">
-      <p><a v-bind:href="`https://github.com/hplt-project/OpusCleaner/tree/${commit}`" v-bind:title="`Commit ${commit}`">Version {{ version }}</a></p>
     </div>
   </div>
 </template>
 
 <style>
-@import 'css/property-list.css';
-
-:root {
-  --background-color: #fff;
-  --border-color: #17223d;
-}
+@import "css/property-list.css";
 
 * {
   margin: 0;
@@ -54,6 +44,7 @@ const version = __OPUS_CLEANER_VERSION__;
 body {
   margin: 20px 60px;
   font-family: "Lato", sans-serif;
+  color: var(--main-copy);
 }
 
 .navbar {
@@ -62,10 +53,13 @@ body {
   margin-bottom: 30px;
   align-items: center;
 }
+.logo {
+  width: 180px;
+}
 
 .footer {
   display: flex;
-  width: 75%;
+  width: 90%;
   margin: 60px auto;
   font-family: "Lato", sans-serif;
 }
@@ -81,10 +75,13 @@ body {
 
 .thanking {
   display: flex;
+  font-weight: 300px;
+  color: var(--secondary-copy);
+  font-size: 14px;
+  width: 45%;
 }
-
-.version {
-  white-space: nowrap;
+.right {
+  margin-left: 60px;
 }
 
 .icon-button {
