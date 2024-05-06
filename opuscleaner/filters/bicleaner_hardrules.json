@@ -1,7 +1,7 @@
 {
     "type": "bilingual",
     "description": "Pre-filtering step for bicleaner",
-    "command": "../threshold.py --eq 1 bicleaner-hardrules -s $LANG1 -t $LANG2 ${DISABLE_LM_FILTER:+--disable_lm_filter} ${DISABLE_PORN_REMOVAL:+--disable_porn_removal} ${DISABLE_MINIMAL_LENGTH:+--disable_minimal_length} --scol 1 --tcol 2 --score_only --processes 1",
+    "command": ". /work/venvs/venv-bch/bin/activate && ../threshold.py --eq 1 bicleaner-hardrules -s $LANG1 -t $LANG2 ${DISABLE_LM_FILTER:+--disable_lm_filter} ${DISABLE_PORN_REMOVAL:+--disable_porn_removal} ${DISABLE_MINIMAL_LENGTH:+--disable_minimal_length} --scol 1 --tcol 2 --score_only --processes 1",
     "parameters":
     {
         "LANG1":
